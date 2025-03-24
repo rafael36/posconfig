@@ -150,7 +150,6 @@
         "lib32-alsa-plugins",
         "mpv"
     ],
-
     "parallel downloads": 0,
     "profile_config": {
         "gfx_driver": "AMD / ATI (open-source)",
@@ -167,9 +166,8 @@
     "uki": false,
     "version": "3.0.2",
     "post_install": [
-        "su - rafael",
-        "git clone https://github.com/rafael36/posconfig.git",
-        "cd posconfig/",
+        "git clone https://github.com/rafael36/posconfig.git /home/rafael/posconfig",
+        "cd /home/rafael/posconfig",
         "chmod +x instalação.sh",
         "./instalação.sh"
     ]
