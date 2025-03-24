@@ -167,8 +167,9 @@
     "uki": false,
     "version": "3.0.2",
     "post_install": [
-        "git clone https://github.com/rafael36/posconfig.git /root/posconfig",
-        "cd /root/posconfig",
+        "su - rafael",
+        "git clone https://github.com/rafael36/posconfig.git",
+        "cd posconfig/",
         "chmod +x instalação.sh",
         "./instalação.sh"
     ]
