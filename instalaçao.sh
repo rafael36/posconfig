@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Clonar o repositório
-git clone https://github.com/rafael36/posconfig.git
+# cgit clone https://github.com/rafael36/posconfig.git
 
 # Acessar a pasta clonada
-cd posconfig/
+# cd posconfig/
 
 # Extrair o arquivo de configurações
 tar -xzf configeatalhos.tar.gz
@@ -18,6 +18,11 @@ mkdir -p /home/rafael/.local/share/applications
 mkdir -p /usr/share/nemo/actions
 mkdir /mnt/hd2
 
+sudo chmod 777 /mnt/hd2
+
+sudo mount /dev/sda1 /mnt/hd2
+
+mkdir /mnt/hd2/docker
 
 # montar hd2 permanente
 echo '
@@ -34,6 +39,25 @@ sed -i '1s|^|VIRTUAL_ENV_DISABLE_PROMPT=1\n|' /home/rafael/venv/bin/activate
 /home/rafael/venv/bin/pip install yt-dlp selenium bs4
 
 
+# android avd
+echo 'ANDROID_SDK_HOME=/mnt/hd2/android-avd
+ANDROID_AVD_HOME=/mnt/hd2/android-avd/.android/avd
+
+' | sudo tee -a /etc/environment
+
+
+# docker
+sudo mkdir /etc/docker
+
+sudo touch /etc/docker/daemon.json
+
+echo '{
+ "data-root": "/mnt/hd2/docker"
+}
+
+' | sudo tee -a /etc/docker/daemon.json
+
+
 # Mover wallpapers para a pasta home
 mv wallhaven-85dpxo_1920x1080.png wallhaven-7331ko_1920x1080.png /home/rafael/
 
@@ -42,6 +66,9 @@ mv shotcut.desktop retroarch.desktop losslesscut.desktop /home/rafael/.local/sha
 
 # Mover configurações do Waybar
 mv config /home/rafael/.config/waybar/
+
+# Mover atalhos diretorio nano
+mv open_in_code.nemo_action open_in_terminal.nemo_action /usr/share/nemo/actions
 
 # Mover configurações do Alacritty
 mv alacritty.toml /home/rafael/.config/alacritty
@@ -53,8 +80,22 @@ mv hyprpaper.conf hyprland.conf /home/rafael/.config/hypr
 tar -xf MyBreeze-Dark-GTK.tar
 mv MyBreeze-Dark-GTK /home/rafael/.themes
 
-# Dar permissão de execução ao script de instalação adicional
-chmod +x instalaralgunsprogramasgitclone.sh
+mkdir -p ~/aur-builds
+cd ~/aur-builds
 
-# Executar o script de instalação de programas
-./instalaralgunsprogramasgitclone.sh
+# Clona os repositórios do AUR
+git clone https://aur.archlinux.org/google-chrome.git
+git clone https://aur.archlinux.org/brave-bin.git
+git clone https://aur.archlinux.org/parsec-bin.git
+git clone https://aur.archlinux.org/ulauncher.git
+
+# Instala os pacotes
+cd google-chrome && makepkg -si --noconfirm && cd ..
+cd brave-bin && makepkg -si --noconfirm && cd ..
+cd parsec-bin && makepkg -si --noconfirm && cd ..
+cd ulauncher && makepkg -si --noconfirm && cd ..
+
+# Limpeza opcional dos diretórios
+rm -rf ~/aur-builds
+
+echo "Instalação concluída!"
