@@ -37,28 +37,6 @@ cd configpasta
 # Operações com sudo
 sudo bash -c '
 
-    mkdir /mnt/hd2
-    # Alterações de permissões e montagem
-    chmod 777 /mnt/hd2
-    mount /dev/sda1 /mnt/hd2
-    echo "# /dev/sda1
-UUID=66611ca8-7791-4a23-93d3-dcb7daf5c577  /mnt/hd2  ext4  defaults,noatime  0  2" >> /etc/fstab
-
-    # Configuração do Docker
-    mkdir /etc/docker
-    touch /etc/docker/daemon.json
-    echo "{
-  "data-root": "/mnt/hd2/docker"
-}" > /etc/docker/daemon.json
-    chmod 777 /etc/docker
-    chmod 777 /mnt/hd2/docker
-
-    # Configuração do Android AVD
-    echo "ANDROID_SDK_HOME=/mnt/hd2/android-avd
-ANDROID_AVD_HOME=/mnt/hd2/android-avd/.android/avd
-" >> /etc/environment
-
-
 
 mv open_in_code.nemo_action open_in_terminal.nemo_action /usr/share/nemo/actions
 '
@@ -89,3 +67,4 @@ mv open_in_code.nemo_action open_in_terminal.nemo_action /usr/share/nemo/actions
     rm -rf /home/rafael/aur-builds
 
     echo "Instalação concluída!"
+
