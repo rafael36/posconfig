@@ -51,6 +51,8 @@ UUID=66611ca8-7791-4a23-93d3-dcb7daf5c577  /mnt/hd2  ext4  defaults,noatime  0  
 }" > /etc/docker/daemon.json
     chmod 777 /etc/docker
     chmod 777 /mnt/hd2/docker
+    systemctl enable docker
+    systemctl start docker
 
     # Configuração do Android AVD
     echo "ANDROID_SDK_HOME=/mnt/hd2/android-avd
