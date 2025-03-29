@@ -18,7 +18,6 @@ cd configpasta
     mkdir -p /home/rafael/.config/alacritty
     mkdir -p /home/rafael/.config/hypr
     mkdir -p /home/rafael/.local/share/applications
-    mkdir -p /usr/share/nemo/actions
 
 
     # Extrair e mover tema GTK
@@ -36,7 +35,7 @@ cd configpasta
 
 # Operações com sudo
 sudo bash -c '
-
+    mkdir -p /usr/share/nemo/actions
     mkdir /mnt/hd2
     # Alterações de permissões e montagem
     chmod 777 /mnt/hd2
