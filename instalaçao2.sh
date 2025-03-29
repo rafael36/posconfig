@@ -9,6 +9,8 @@
 # Extrair o arquivo de configurações
 tar -xzf configeatalhos.tar.gz
 
+cd configpasta
+
 # Operações com sudo
 sudo bash -c '
     # Criar diretórios necessários
@@ -49,6 +51,17 @@ ANDROID_AVD_HOME=/mnt/hd2/android-avd/.android/avd
     tar -xf MyBreeze-Dark-GTK.tar
     mv MyBreeze-Dark-GTK /home/rafael/.themes
 
+    # Mover wallpapers para a pasta home
+    mv /home/rafael/wallhaven-85dpxo_1920x1080.png /home/rafael/wallhaven-7331ko_1920x1080.png /home/rafael/
+
+    # Criar ambiente virtual Python
+    python -m venv /home/rafael/venv
+    echo "source /home/rafael/venv/bin/activate" >> /home/rafael/.bashrc
+    sed -i "1s|^|VIRTUAL_ENV_DISABLE_PROMPT=1\n|" /home/rafael/venv/bin/activate
+    /home/rafael/venv/bin/pip install yt-dlp selenium bs4
+
+'
+
     # Instalar pacotes do AUR
     mkdir -p /home/rafael/aur-builds
     cd /home/rafael/aur-builds
@@ -68,14 +81,4 @@ ANDROID_AVD_HOME=/mnt/hd2/android-avd/.android/avd
     # Limpeza dos diretórios
     rm -rf /home/rafael/aur-builds
 
-    # Mover wallpapers para a pasta home
-    mv /home/rafael/wallhaven-85dpxo_1920x1080.png /home/rafael/wallhaven-7331ko_1920x1080.png /home/rafael/
-
-    # Criar ambiente virtual Python
-    python -m venv /home/rafael/venv
-    echo "source /home/rafael/venv/bin/activate" >> /home/rafael/.bashrc
-    sed -i "1s|^|VIRTUAL_ENV_DISABLE_PROMPT=1\n|" /home/rafael/venv/bin/activate
-    /home/rafael/venv/bin/pip install yt-dlp selenium bs4
-
     echo "Instalação concluída!"
-'

@@ -108,6 +108,7 @@
     "ntp": true,
     "packages": [
         "hyprland",
+        "firefox",
         "git",
         "ttf-dejavu",
         "ttf-liberation",
