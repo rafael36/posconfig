@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=LosslessCut
-Comment=Editor de vídeos
-Exec=/mnt/hd2/Downloads/LosslessCut-linux-x86_64.AppImage
-Icon=LosslessCut
-Terminal=false
-Type=Application
-Categories=Utility;
-Name[pt_BR]=LosslessCut

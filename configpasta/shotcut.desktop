@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Shotcut
-Comment=Editor de vídeos
-Exec=/mnt/hd2/Downloads/shotcut-linux-x86_64-250125.AppImage
-Icon=shotcut
-Terminal=false
-Type=Application
-Categories=Utility;
-Name[pt_BR]=Shotcut

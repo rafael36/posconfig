@@ -1,9 +1,0 @@
-[Nemo Action]
-Name=Abrir no VS Code
-Comment=Abrir a pasta no VS Code
-Exec=code %F
-Icon-Name=code
-Selection=any
-Extensions=dir;
-Quote=double
-EscapeSpaces=true

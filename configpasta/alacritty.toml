@@ -1,6 +1,0 @@
-[window]
-# Define a opacidade da janela (0.0 a 1.0)
-opacity = 0.9
-
-# Remover as decorações da janela (como bordas e barra de título)
-decorations = "none"
