@@ -56,11 +56,14 @@ UUID=66611ca8-7791-4a23-93d3-dcb7daf5c577  /mnt/hd2  ext4  defaults,noatime  0  
     echo "ANDROID_SDK_HOME=/mnt/hd2/android-avd
 ANDROID_AVD_HOME=/mnt/hd2/android-avd/.android/avd
 " >> /etc/environment
+
+
+
+mv open_in_code.nemo_action open_in_terminal.nemo_action /usr/share/nemo/actions
 '
     # Mover arquivos de configurações
     mv shotcut.desktop retroarch.desktop losslesscut.desktop /home/rafael/.local/share/applications
     mv config /home/rafael/.config/waybar/
-    mv open_in_code.nemo_action open_in_terminal.nemo_action /usr/share/nemo/actions
     mv alacritty.toml /home/rafael/.config/alacritty
     mv hyprpaper.conf hyprland.conf /home/rafael/.config/hypr
 
