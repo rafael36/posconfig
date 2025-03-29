@@ -79,7 +79,7 @@
     "disk_encryption": null,
     "hostname": "archlinux",
     "kernels": [
-        "linux-zen"
+        "linux"
     ],
     "locale_config": {
         "kb_layout": "br-abnt2",
