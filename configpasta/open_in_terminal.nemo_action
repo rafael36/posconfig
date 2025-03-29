@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Abrir no Terminal
+Comment=Abrir a pasta no terminal
+Exec=alacritty --working-directory=%F
+Icon-Name=utilities-terminal
+Selection=any
+Extensions=dir;
+Quote=double
+EscapeSpaces=true

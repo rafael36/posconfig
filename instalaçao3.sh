@@ -26,7 +26,7 @@ cd configpasta
     mv MyBreeze-Dark-GTK /home/rafael/.themes
 
     # Mover wallpapers para a pasta home
-    mv /home/rafael/wallhaven-85dpxo_1920x1080.png /home/rafael/wallhaven-7331ko_1920x1080.png /home/rafael/
+    mv wallhaven-85dpxo_1920x1080.png wallhaven-7331ko_1920x1080.png /home/rafael/
 
     # Criar ambiente virtual Python
     python -m venv /home/rafael/venv
