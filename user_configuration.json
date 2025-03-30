@@ -130,6 +130,8 @@
         "noto-fonts",
         "qt6-wayland",
         "slurp",
+        "amdvlk",
+        "lib32-amdvlk",
         "grim",
         "gsimplecal",
         "wine-staging",
@@ -149,6 +151,10 @@
         "vlc",
         "lib32-libpulse",
         "lib32-alsa-plugins",
+        "mesa",
+        "vulkan-radeon",
+        "xf86-video-admgpu",
+        "xf86-video-ati",
         "mpv"
     ],
 
