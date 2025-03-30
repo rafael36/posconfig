@@ -13,17 +13,19 @@ cd configpasta
 
 
     # Criar diretórios necessários
-    mkdir -p /home/rafael/.themes
     mkdir -p /home/rafael/.config/gtk-3.0
     mkdir -p /home/rafael/.config/ulauncher
-    mkdir -p /home/rafael/.themes
     mkdir -p /home/rafael/.local/share/nwg-look
     mkdir -p /home/rafael/.config/xsettingsd
-    mkdir -p /home/rafael/.themes/MyBreeze-Dark-GTK/gtk-4.0
     mkdir -p /home/rafael/.config/waybar
     mkdir -p /home/rafael/.config/alacritty
     mkdir -p /home/rafael/.config/hypr
     mkdir -p /home/rafael/.local/share/applications
+
+
+    tar -xzf themes.tar.gz
+
+    mv .themes /home/rafael
 
     mv nwg-look/gsettings /home/rafael/.local/share/nwg-look
     mv gtk-3.0/settings.ini /home/rafael/.config/gtk-3.0
@@ -35,8 +37,8 @@ cd configpasta
 
 
     # Extrair e mover tema GTK
-    tar -xf MyBreeze-Dark-GTK.tar
-    mv MyBreeze-Dark-GTK /home/rafael/.themes
+#    tar -xf MyBreeze-Dark-GTK.tar
+#    mv MyBreeze-Dark-GTK /home/rafael/.themes
 
     # Mover wallpapers para a pasta home
     mv wallhaven-85dpxo_1920x1080.png wallhaven-7331ko_1920x1080.png /home/rafael/
