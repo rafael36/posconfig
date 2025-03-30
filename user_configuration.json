@@ -154,12 +154,12 @@
 
     "parallel downloads": 0,
     "profile_config": {
-        "gfx_driver": "AMD / ATI (open-source)",
+        "gfx_driver": null,
         "greeter": null,
         "profile": {
             "custom_settings": {},
             "details": [],
-            "main": "Xorg"
+            "main": "Minimal"
         }
     },
     "save_config": null,
