@@ -34,6 +34,13 @@ cd configpasta
     mv xsettingsd/xsettingsd.conf /home/rafael/.config/xsettingsd
 
 
+    gsettings set org.gnome.desktop.interface gtk-theme "MyBreeze-Dark-GTK"
+    gsettings set org.gnome.desktop.interface icon-theme "Adwaita"
+    gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
+    gsettings set org.gnome.desktop.interface font-name "Cantarell 11"
+
+
+
 
 
     # Extrair e mover tema GTK
