@@ -24,12 +24,10 @@ cd configpasta
     mkdir -p /home/rafael/.local/share/applications
 
 
-    # tar -xzf themes.tar.gz
-
     tar -xf MyBreeze-Dark-GTK.tar
 
     mv MyBreeze-Dark-GTK /home/rafael/.themes
-    # mv .themes /home/rafael
+
 
     mv nwg-look/gsettings /home/rafael/.local/share/nwg-look
     mv gtk-3.0/settings.ini /home/rafael/.config/gtk-3.0
@@ -66,8 +64,8 @@ sudo bash -c '
     mkdir /mnt/hd2
     # Alterações de permissões e montagem
     chmod 777 /mnt/hd2
-    mount /dev/sda1 /mnt/hd2
-    echo "# /dev/sda1
+    mount /dev/sdb1 /mnt/hd2
+    echo "# /dev/sdb1
 UUID=66611ca8-7791-4a23-93d3-dcb7daf5c577  /mnt/hd2  ext4  defaults,noatime  0  2" >> /etc/fstab
 
     # Configuração do Docker
