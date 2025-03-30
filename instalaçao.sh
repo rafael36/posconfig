@@ -14,6 +14,7 @@ cd configpasta
 
     # Criar diretórios necessários
     mkdir -p /home/rafael/.config/gtk-3.0
+    mkdir -p /home/rafael/.themes
     mkdir -p /home/rafael/.config/ulauncher
     mkdir -p /home/rafael/.local/share/nwg-look
     mkdir -p /home/rafael/.config/xsettingsd
@@ -23,9 +24,12 @@ cd configpasta
     mkdir -p /home/rafael/.local/share/applications
 
 
-    tar -xzf themes.tar.gz
+    # tar -xzf themes.tar.gz
 
-    mv .themes /home/rafael
+    tar -xf MyBreeze-Dark-GTK.tar
+
+    mv MyBreeze-Dark-GTK /home/rafael/.themes
+    # mv .themes /home/rafael
 
     mv nwg-look/gsettings /home/rafael/.local/share/nwg-look
     mv gtk-3.0/settings.ini /home/rafael/.config/gtk-3.0
