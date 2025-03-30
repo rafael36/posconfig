@@ -71,8 +71,9 @@ ANDROID_AVD_HOME=/mnt/hd2/android-avd/.android/avd
 " >> /etc/environment
 
 
-pacman -S steam
+pacman -S steam flatpak
 
+flatpak install flathub com.obsproject.Studio
 
 mv open_in_code.nemo_action open_in_terminal.nemo_action /usr/share/nemo/actions
 '
