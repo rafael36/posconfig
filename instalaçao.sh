@@ -16,6 +16,7 @@ cd configpasta
     mkdir -p /home/rafael/.themes
     mkdir -p /home/rafael/.config/gtk-3.0
     mkdir -p /home/rafael/.config/ulauncher
+    mkdir -p /home/rafael/.themes
     mkdir -p /home/rafael/.local/share/nwg-look
     mkdir -p /home/rafael/.config/xsettingsd
     mkdir -p /home/rafael/.themes/MyBreeze-Dark-GTK/gtk-4.0
