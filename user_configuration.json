@@ -120,6 +120,7 @@
         "code",
         "fuse2",
         "waybar",
+        "polkit-gnome",
         "pavucontrol",
         "nano",
         "pulsemixer",
