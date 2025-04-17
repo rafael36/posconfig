@@ -109,6 +109,7 @@
     "packages": [
         "hyprland",
         "firefox",
+        "chromium",
         "git",
         "ttf-dejavu",
         "ttf-liberation",
