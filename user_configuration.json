@@ -135,7 +135,7 @@
         "amdvlk",
         "lib32-amdvlk",
         "grim",
-	"zerotier-one",
+	    "zerotier-one",
         "gsimplecal",
         "wine-staging",
         "winetricks",
