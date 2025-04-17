@@ -1,10 +1,13 @@
 {
+    "additional-repositories": [
+        "multilib"
+    ],
     "archinstall-language": "Brazilian Portuguese",
     "audio_config": {
         "audio": "pipewire"
     },
     "bootloader": "Systemd-boot",
-    "custom_commands": [],
+    "config_version": "3.0.2",
     "disk_config": {
         "config_type": "default_layout",
         "device_modifications": [
@@ -21,7 +24,7 @@
                         "fs_type": "fat32",
                         "mount_options": [],
                         "mountpoint": "/boot",
-                        "obj_id": "f3f51b82-afd5-4c79-8390-2fc005c04942",
+                        "obj_id": "05840c38-05c5-49df-ac3b-ad921e4989d3",
                         "size": {
                             "sector_size": {
                                 "unit": "B",
@@ -48,7 +51,7 @@
                         "fs_type": "ext4",
                         "mount_options": [],
                         "mountpoint": "/",
-                        "obj_id": "5f5d5cbc-59a6-4ce5-a7d4-45a168fee2ef",
+                        "obj_id": "826fcd59-4b71-49eb-b052-a8f756b282e8",
                         "size": {
                             "sector_size": {
                                 "unit": "B",
@@ -73,6 +76,7 @@
             }
         ]
     },
+    "disk_encryption": null,
     "hostname": "archlinux",
     "kernels": [
         "linux"
@@ -83,8 +87,7 @@
         "sys_lang": "pt_BR.UTF-8"
     },
     "mirror_config": {
-        "custom_repositories": [],
-        "custom_servers": [],
+        "custom_mirrors": [],
         "mirror_regions": {
             "Brazil": [
                 "http://archlinux.c3sl.ufpr.br/$repo/os/$arch",
@@ -97,15 +100,68 @@
                 "http://mirrors.ic.unicamp.br/archlinux/$repo/os/$arch",
                 "https://mirrors.ic.unicamp.br/archlinux/$repo/os/$arch"
             ]
-        },
-        "optional_repositories": []
+        }
     },
     "network_config": {
         "type": "nm"
     },
     "ntp": true,
-    "packages": [],
-    "parallel_downloads": 0,
+    "packages": [
+        "hyprland",
+        "firefox",
+        "chromium",
+        "git",
+        "ttf-dejavu",
+        "ttf-liberation",
+        "ttf-font-awesome",
+        "go",
+        "jq",
+        "qbittorrent",
+        "noto-fonts-extra",
+        "hyprpaper",
+        "alacritty",
+        "code",
+        "fuse2",
+        "waybar",
+        "polkit-gnome",
+        "pavucontrol",
+        "nano",
+        "pulsemixer",
+        "p7zip",
+        "nwg-look",
+        "noto-fonts",
+        "qt6-wayland",
+        "slurp",
+        "amdvlk",
+        "lib32-amdvlk",
+        "grim",
+	    "zerotier-one",
+        "gsimplecal",
+        "wine-staging",
+        "winetricks",
+        "wine-mono",
+        "wine-gecko",
+        "lib32-alsa-plugins",
+        "lib32-libpulse",
+        "docker",
+        "python3",
+        "python-pip",
+        "nemo",
+        "flatpak",
+        "btop",
+        "psensor",
+        "xdg-desktop-portal-hyprland",
+        "vlc",
+        "lib32-libpulse",
+        "lib32-alsa-plugins",
+        "mesa",
+        "vulkan-radeon",
+        "xf86-video-amdgpu",
+        "xf86-video-ati",
+        "mpv"
+    ],
+
+    "parallel downloads": 0,
     "profile_config": {
         "gfx_driver": null,
         "greeter": null,
@@ -115,8 +171,9 @@
             "main": "Minimal"
         }
     },
-    "services": [],
+    "save_config": null,
     "swap": true,
     "timezone": "America/Sao_Paulo",
-    "version": null
+    "uki": false,
+    "version": "3.0.2"
 }

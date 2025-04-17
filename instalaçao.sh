@@ -60,6 +60,7 @@ cd configpasta
 
 # Operações com sudo
 sudo bash -c '
+    pacman -S hyprland firefox chromium git ttf-dejavu ttf-liberation ttf-font-awesome go jq qbittorrent noto-fonts-extra hyprpaper alacritty code fuse2 waybar polkit-gnome pavucontrol nano pulsemixer p7zip nwg-look noto-fonts qt6-wayland slurp amdvlk lib32-amdvlk grim zerotier-one gsimplecal wine-staging winetricks wine-mono wine-gecko lib32-alsa-plugins lib32-libpulse docker python python-pip nemo flatpak btop psensor xdg-desktop-portal-hyprland vlc mesa vulkan-radeon xf86-video-amdgpu xf86-video-ati mpv
     mkdir -p /usr/share/nemo/actions
     mkdir /mnt/hd2
     # Alterações de permissões e montagem
