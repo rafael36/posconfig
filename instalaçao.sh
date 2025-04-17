@@ -105,12 +105,14 @@ mv open_in_code.nemo_action open_in_terminal.nemo_action /usr/share/nemo/actions
     git clone https://aur.archlinux.org/brave-bin.git
     git clone https://aur.archlinux.org/parsec-bin.git
     git clone https://aur.archlinux.org/ulauncher.git
-
+    git clone https://aur.archlinux.org/sunshine.git
+	
     # Instala os pacotes
     cd google-chrome && makepkg -si --noconfirm && cd ..
     cd brave-bin && makepkg -si --noconfirm && cd ..
     cd parsec-bin && makepkg -si --noconfirm && cd ..
     cd ulauncher && makepkg -si --noconfirm && cd ..
+    cd sunshine && makepkg -si --noconfirm && cd ..
 
     # Limpeza dos diretórios
     rm -rf /home/rafael/aur-builds
