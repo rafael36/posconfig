@@ -1,0 +1,131 @@
+{
+    "archinstall-language": "Brazilian Portuguese",
+    "audio_config": {
+        "audio": "pipewire"
+    },
+    "bootloader": "Systemd-boot",
+    "custom_commands": [],
+    "disk_config": {
+        "config_type": "default_layout",
+        "device_modifications": [
+            {
+                "device": "/dev/sda",
+                "partitions": [
+                    {
+                        "btrfs": [],
+                        "dev_path": null,
+                        "flags": [
+                            "boot",
+                            "esp"
+                        ],
+                        "fs_type": "fat32",
+                        "mount_options": [],
+                        "mountpoint": "/boot",
+                        "obj_id": "f3f51b82-afd5-4c79-8390-2fc005c04942",
+                        "size": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "GiB",
+                            "value": 1
+                        },
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "MiB",
+                            "value": 1
+                        },
+                        "status": "create",
+                        "type": "primary"
+                    },
+                    {
+                        "btrfs": [],
+                        "dev_path": null,
+                        "flags": [],
+                        "fs_type": "ext4",
+                        "mount_options": [],
+                        "mountpoint": "/",
+                        "obj_id": "5f5d5cbc-59a6-4ce5-a7d4-45a168fee2ef",
+                        "size": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "B",
+                            "value": 62948114432
+                        },
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "B",
+                            "value": 1074790400
+                        },
+                        "status": "create",
+                        "type": "primary"
+                    }
+                ],
+                "wipe": true
+            }
+        ]
+    },
+    "hostname": "archlinux",
+    "kernels": [
+        "linux"
+    ],
+    "locale_config": {
+        "kb_layout": "br-abnt2",
+        "sys_enc": "UTF-8",
+        "sys_lang": "pt_BR.UTF-8"
+    },
+    "mirror_config": {
+        "custom_repositories": [],
+        "custom_servers": [],
+        "mirror_regions": {
+            "Brazil": [
+                "http://archlinux.c3sl.ufpr.br/$repo/os/$arch",
+                "https://archlinux.c3sl.ufpr.br/$repo/os/$arch",
+                "http://br.mirrors.cicku.me/archlinux/$repo/os/$arch",
+                "https://br.mirrors.cicku.me/archlinux/$repo/os/$arch",
+                "http://mirror.ufam.edu.br/archlinux/$repo/os/$arch",
+                "http://mirror.ufscar.br/archlinux/$repo/os/$arch",
+                "https://mirror.ufscar.br/archlinux/$repo/os/$arch",
+                "http://mirrors.ic.unicamp.br/archlinux/$repo/os/$arch",
+                "https://mirrors.ic.unicamp.br/archlinux/$repo/os/$arch"
+            ]
+        },
+        "optional_repositories": []
+    },
+    "network_config": {
+        "type": "nm"
+    },
+    "ntp": true,
+    "packages": [
+        "hyprland", "firefox", "chromium", "git", "ttf-dejavu", "ttf-liberation", "ttf-font-awesome",
+        "go", "jq", "qbittorrent", "noto-fonts-extra", "hyprpaper", "alacritty", "code", "fuse2",
+        "waybar", "polkit-gnome", "pavucontrol", "nano", "pulsemixer", "p7zip", "nwg-look",
+        "noto-fonts", "qt6-wayland", "slurp", "amdvlk", "lib32-amdvlk", "grim", "zerotier-one",
+        "gsimplecal", "wine-staging", "winetricks", "wine-mono", "wine-gecko", "lib32-alsa-plugins",
+        "lib32-libpulse", "docker", "python3", "python-pip", "nemo", "flatpak", "btop", "psensor",
+        "xdg-desktop-portal-hyprland", "vlc", "mesa", "vulkan-radeon", "xf86-video-amdgpu",
+        "xf86-video-ati", "mpv"
+    ],
+    "parallel_downloads": 0,
+    "profile_config": {
+        "gfx_driver": null,
+        "greeter": null,
+        "profile": {
+            "custom_settings": {},
+            "details": [],
+            "main": "Minimal"
+        }
+    },
+    "services": [],
+    "swap": true,
+    "timezone": "America/Sao_Paulo",
+    "version": null
+}

@@ -6,6 +6,82 @@
 # Acessar a pasta clonada
 # cd posconfig/
 
+
+
+
+# instalar tudo
+
+#!/bin/bash
+
+# Definindo os pacotes em um array
+pacotes=(
+  "hyprland"
+  "firefox"
+  "chromium"
+  "git"
+  "ttf-dejavu"
+  "ttf-liberation"
+  "ttf-font-awesome"
+  "go"
+  "jq"
+  "qbittorrent"
+  "noto-fonts-extra"
+  "hyprpaper"
+  "alacritty"
+  "code"
+  "fuse2"
+  "waybar"
+  "polkit-gnome"
+  "pavucontrol"
+  "nano"
+  "pulsemixer"
+  "p7zip"
+  "nwg-look"
+  "noto-fonts"
+  "qt6-wayland"
+  "slurp"
+  "amdvlk"
+  "lib32-amdvlk"
+  "grim"
+  "zerotier-one"
+  "gsimplecal"
+  "wine-staging"
+  "winetricks"
+  "wine-mono"
+  "wine-gecko"
+  "lib32-alsa-plugins"
+  "lib32-libpulse"
+  "docker"
+  "python3"
+  "python-pip"
+  "nemo"
+  "flatpak"
+  "btop"
+  "psensor"
+  "xdg-desktop-portal-hyprland"
+  "vlc"
+  "lib32-libpulse"
+  "lib32-alsa-plugins"
+  "mesa"
+  "vulkan-radeon"
+  "xf86-video-amdgpu"
+  "xf86-video-ati"
+  "mpv"
+  "steam"
+  "flatpak"
+)
+
+# Instalar os pacotes
+for pacote in "${pacotes[@]}"
+do
+    echo "Instalando $pacote..."
+    sudo pacman -S --noconfirm "$pacote"
+done
+
+echo "Todos os pacotes foram instalados!"
+
+
+
 # Extrair o arquivo de configurações
 tar -xzf configeatalhos.tar.gz
 
@@ -42,9 +118,6 @@ cd configpasta
     gsettings set org.gnome.desktop.interface font-name "Cantarell 11"
 
 
-
-
-
     # Extrair e mover tema GTK
 #    tar -xf MyBreeze-Dark-GTK.tar
 #    mv MyBreeze-Dark-GTK /home/rafael/.themes
@@ -60,7 +133,6 @@ cd configpasta
 
 # Operações com sudo
 sudo bash -c '
-    pacman -S hyprland firefox chromium git ttf-dejavu ttf-liberation ttf-font-awesome go jq qbittorrent noto-fonts-extra hyprpaper alacritty code fuse2 waybar polkit-gnome pavucontrol nano pulsemixer p7zip nwg-look noto-fonts qt6-wayland slurp amdvlk lib32-amdvlk grim zerotier-one gsimplecal wine-staging winetricks wine-mono wine-gecko lib32-alsa-plugins lib32-libpulse docker python python-pip nemo flatpak btop psensor xdg-desktop-portal-hyprland vlc mesa vulkan-radeon xf86-video-amdgpu xf86-video-ati mpv
     mkdir -p /usr/share/nemo/actions
     mkdir /mnt/hd2
     # Alterações de permissões e montagem
@@ -83,8 +155,6 @@ UUID=66611ca8-7791-4a23-93d3-dcb7daf5c577  /mnt/hd2  ext4  defaults,noatime  0  
 ANDROID_AVD_HOME=/mnt/hd2/android-avd/.android/avd
 " >> /etc/environment
 
-
-pacman -S steam flatpak
 
 flatpak install flathub com.obsproject.Studio
 
