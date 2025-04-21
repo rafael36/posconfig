@@ -21,7 +21,7 @@
                         "fs_type": "fat32",
                         "mount_options": [],
                         "mountpoint": "/boot",
-                        "obj_id": "f3f51b82-afd5-4c79-8390-2fc005c04942",
+                        "obj_id": "51081528-fdcd-434f-8fcf-ea24afebe736",
                         "size": {
                             "sector_size": {
                                 "unit": "B",
@@ -48,7 +48,7 @@
                         "fs_type": "ext4",
                         "mount_options": [],
                         "mountpoint": "/",
-                        "obj_id": "5f5d5cbc-59a6-4ce5-a7d4-45a168fee2ef",
+                        "obj_id": "c1bbf226-bc31-4f3e-bb37-9d10a96ceb00",
                         "size": {
                             "sector_size": {
                                 "unit": "B",
