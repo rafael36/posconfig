@@ -10,6 +10,7 @@ else
   echo "Repositório multilib já habilitado."
 fi
 
+sudo pacman -S git
 
 # Clonar o repositório
 git clone https://github.com/rafael36/posconfig.git
@@ -22,7 +23,7 @@ pacotes=(
   "hyprland" "firefox" "chromium" "git" "ttf-dejavu" "ttf-liberation"
   "ttf-font-awesome" "go" "jq" "qbittorrent" "noto-fonts-extra" "hyprpaper"
   "alacritty" "code" "fuse2" "waybar" "polkit-gnome" "dconf" "pavucontrol" "nano"
-  "pulsemixer" "p7zip" "sddm" "nwg-look" "noto-fonts" "qt6-wayland" "slurp" "amdvlk"
+  "pulsemixer" "p7zip" "rofi" "sddm" "nwg-look" "noto-fonts" "qt6-wayland" "slurp" "amdvlk"
   "lib32-amdvlk" "grim" "zerotier-one" "gsimplecal" "wine-staging" "winetricks"
   "wine-mono" "wine-gecko" "lib32-alsa-plugins" "docker" "python3" "python-pip"
   "nemo" "flatpak" "btop" "psensor" "xdg-desktop-portal-hyprland" "vlc"
@@ -72,12 +73,6 @@ echo "source /home/rafael/venv/bin/activate" >> /home/rafael/.bashrc
 sed -i "1s|^|VIRTUAL_ENV_DISABLE_PROMPT=1\n|" /home/rafael/venv/bin/activate
 /home/rafael/venv/bin/pip install yt-dlp selenium bs4
 
-# ---------- Configurações de tema via gsettings ----------
-dconf write /org/gnome/desktop/interface/gtk-theme "'MyBreeze-Dark-GTK'"
-dconf write /org/gnome/desktop/interface/icon-theme "'Adwaita'"
-dconf write /org/gnome/desktop/interface/cursor-theme "'Adwaita'"
-dconf write /org/gnome/desktop/interface/font-name "'Cantarell 11'"
-
 # ---------- Montagem automática do HD ----------
 sudo mkdir -p /mnt/hd2
 sudo chmod 777 /mnt/hd2
@@ -108,7 +103,7 @@ sudo mkdir -p /etc/docker
 sudo mv daemon.json /etc/docker
 sudo usermod -aG docker rafael
 
-# ---------- Docker ----------
+# ---------- Script ----------
 mv hyprland_config.sh /home/rafael
 
 # ---------- Systemctl ----------
