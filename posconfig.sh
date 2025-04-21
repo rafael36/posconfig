@@ -92,7 +92,9 @@ ANDROID_AVD_HOME=/mnt/hd2/android-avd/.android/avd
 fi
 
 # ---------- Flatpak ----------
-flatpak install --noninteractive flathub com.obsproject.Studio
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install -y --user flathub com.obsproject.Studio
+#flatpak install --noninteractive flathub com.obsproject.Studio
 
 # ---------- Nemo Actions ----------
 sudo mkdir -p /usr/share/nemo/actions
