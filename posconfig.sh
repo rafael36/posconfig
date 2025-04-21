@@ -108,6 +108,8 @@ sudo mkdir -p /etc/docker
 sudo mv daemon.json /etc/docker
 sudo usermod -aG docker rafael
 
+# ---------- Docker ----------
+mv hyprland_config.sh /home/rafael
 
 # ---------- Systemctl ----------
 sudo ln -s /usr/lib/systemd/system/zerotier-one.service /etc/systemd/system/multi-user.target.wants/zerotier-one.service
