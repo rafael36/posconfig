@@ -10,7 +10,7 @@ else
   echo "Repositório multilib já habilitado."
 fi
 
-sudo pacman -S git
+sudo pacman -S --noconfirm git
 
 # Clonar o repositório
 git clone https://github.com/rafael36/posconfig.git
@@ -132,5 +132,3 @@ done
 rm -rf /home/rafael/aur-builds
 
 echo "Instalação concluída!"
-echo "Reiniciando!"
-sudo reboot
