@@ -22,7 +22,7 @@ pacotes=(
   "hyprland" "firefox" "chromium" "git" "ttf-dejavu" "ttf-liberation"
   "ttf-font-awesome" "go" "jq" "qbittorrent" "noto-fonts-extra" "hyprpaper"
   "alacritty" "code" "fuse2" "waybar" "polkit-gnome" "dconf" "pavucontrol" "nano"
-  "pulsemixer" "p7zip" "nwg-look" "noto-fonts" "qt6-wayland" "slurp" "amdvlk"
+  "pulsemixer" "p7zip" "sddm" "nwg-look" "noto-fonts" "qt6-wayland" "slurp" "amdvlk"
   "lib32-amdvlk" "grim" "zerotier-one" "gsimplecal" "wine-staging" "winetricks"
   "wine-mono" "wine-gecko" "lib32-alsa-plugins" "docker" "python3" "python-pip"
   "nemo" "flatpak" "btop" "psensor" "xdg-desktop-portal-hyprland" "vlc"
@@ -107,6 +107,13 @@ sudo mv open_in_code.nemo_action open_in_terminal.nemo_action /usr/share/nemo/ac
 sudo mkdir -p /etc/docker
 sudo mv daemon.json /etc/docker
 sudo usermod -aG docker rafael
+
+
+# ---------- Systemctl ----------
+sudo ln -s /usr/lib/systemd/system/zerotier-one.service /etc/systemd/system/multi-user.target.wants/zerotier-one.service
+sudo ln -s /usr/lib/systemd/system/sddm.service /etc/systemd/system/display-manager.service
+sudo ln -s /usr/lib/systemd/system/docker.service /etc/systemd/system/multi-user.target.wants/docker.service
+
 
 
 # ---------- Instalação de pacotes do AUR ----------
