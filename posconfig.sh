@@ -61,7 +61,7 @@ mv .gtkrc-2.0 /home/rafael/
 mv settings.json /home/rafael/.config/ulauncher
 mv xsettingsd/xsettingsd.conf /home/rafael/.config/xsettingsd
 mv script.sh /home/rafael/.config/hypr/
-mv shotcut.desktop retroarch.desktop losslesscut.desktop /home/rafael/.local/share/applications
+mv shotcut.desktop retroarch.desktop losslesscut.desktop kdenlive.desktop heroic.desktop /home/rafael/.local/share/applications
 mv config /home/rafael/.config/waybar/
 mv alacritty.toml /home/rafael/.config/alacritty
 mv hyprpaper.conf hyprland.conf /home/rafael/.config/hypr
@@ -97,7 +97,7 @@ ANDROID_AVD_HOME=/mnt/hd2/android-avd/.android/avd
 fi
 
 # ---------- Flatpak ----------
-flatpak install -y flathub com.obsproject.Studio
+flatpak install --noninteractive flathub com.obsproject.Studio
 
 # ---------- Nemo Actions ----------
 sudo mkdir -p /usr/share/nemo/actions
