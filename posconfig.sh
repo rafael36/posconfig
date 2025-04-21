@@ -103,6 +103,12 @@ flatpak install -y flathub com.obsproject.Studio
 sudo mkdir -p /usr/share/nemo/actions
 sudo mv open_in_code.nemo_action open_in_terminal.nemo_action /usr/share/nemo/actions
 
+# ---------- Docker ----------
+sudo mkdir -p /etc/docker
+sudo mv daemon.json /etc/docker
+sudo usermod -aG docker rafael
+
+
 # ---------- Instalação de pacotes do AUR ----------
 mkdir -p /home/rafael/aur-builds
 cd /home/rafael/aur-builds
@@ -111,7 +117,6 @@ repos_aur=(
   "google-chrome"
   "brave-bin"
   "parsec-bin"
-  "ulauncher"
   "sunshine"
 )
 
