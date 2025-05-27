@@ -24,7 +24,7 @@ pacotes=(
   "alacritty" "nvim" "noto-fonts" "noto-fonts-cjk" "noto-fonts-emoji" "fuse2" "ttf-jetbrains-mono-nerd" "waybar" "polkit-gnome" "dconf" "pavucontrol" "nano"
   "pulsemixer" "p7zip" "rofi" "sddm" "nwg-look" "noto-fonts" "qt6-wayland" "slurp" "amdvlk"
   "lib32-amdvlk" "grim" "zerotier-one" "gsimplecal" "wine-staging" "winetricks" "tigervnc"
-  "wine-mono" "wine-gecko" "lib32-alsa-plugins" "docker" "python3" "python-pip"
+  "wine-mono" "wine-gecko" "lib32-alsa-plugins" "docker" "python3" "python-pip" "papirus-icon-theme"
   "nemo" "flatpak" "btop" "psensor" "xdg-desktop-portal-hyprland" "vlc" "wl-clipboard" "cliphist"
   "lib32-libpulse" "mesa" "vulkan-radeon" "xf86-video-amdgpu" "xf86-video-ati"
   "mpv" "steam"
@@ -56,6 +56,7 @@ mv wallhaven-*.png /home/rafael/
 mv nwg-look/gsettings /home/rafael/.local/share/nwg-look
 mv gtk-3.0/settings.ini /home/rafael/.config/gtk-3.0
 mv .gtkrc-2.0 /home/rafael/
+mv Kvantum /home/rafael/.config/
 mv alacritty.yml /home/rafael/.config/alacritty
 mv xsettingsd/xsettingsd.conf /home/rafael/.config/xsettingsd
 mv script.sh /home/rafael/.config/hypr/
@@ -93,38 +94,40 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 flatpak install -y --user flathub com.obsproject.Studio
 #flatpak install --noninteractive flathub com.obsproject.Studio
 
+sudo bash <<'EOF'
 # ---------- Nemo Actions ----------
-sudo mkdir -p /usr/share/nemo/actions
-sudo mv open_in_code.nemo_action open_in_terminal.nemo_action /usr/share/nemo/actions
+mkdir -p /usr/share/nemo/actions
+mv open_in_code.nemo_action open_in_terminal.nemo_action /usr/share/nemo/actions
 
 # ---------- Google Chrome ----------
-sudo rm /usr/share/applications/com.google.Chrome.desktop
-sudo rm /usr/share/applications/google-chrome.desktop
-sudo rm /usr/share/applications/chromium.desktop
-sudo mv chromium.desktop /usr/share/applications
-sudo mv google-chrome.desktop /usr/share/applications
+rm -f /usr/share/applications/com.google.Chrome.desktop
+rm -f /usr/share/applications/google-chrome.desktop
+rm -f /usr/share/applications/chromium.desktop
+mv chromium.desktop /usr/share/applications
+mv google-chrome.desktop /usr/share/applications
+
+# ---------- Docker ----------
+mkdir -p /etc/docker
+mv daemon.json /etc/docker
+usermod -aG docker rafael
+
+# ---------- Systemctl ----------
+ln -sf /usr/lib/systemd/system/zerotier-one.service /etc/systemd/system/multi-user.target.wants/zerotier-one.service
+ln -sf /usr/lib/systemd/system/sddm.service /etc/systemd/system/display-manager.service
+ln -sf /usr/lib/systemd/system/docker.service /etc/systemd/system/multi-user.target.wants/docker.service
+EOF
 
 # ---------- LazyVim ----------
 git clone https://github.com/LazyVim/starter ~/.config/nvim
-
-# ---------- Docker ----------
-sudo mkdir -p /etc/docker
-sudo mv daemon.json /etc/docker
-sudo usermod -aG docker rafael
 
 # ---------- Script ----------
 mv hyprland_config.sh /home/rafael
 
 # Aplicando as configurações
 dconf write /org/gnome/desktop/interface/gtk-theme "'MyBreeze-Dark-GTK'"
-dconf write /org/gnome/desktop/interface/icon-theme "'Adwaita'"
+dconf write /org/gnome/desktop/interface/icon-theme "'Papirus-Dark'"
 dconf write /org/gnome/desktop/interface/cursor-theme "'Adwaita'"
 dconf write /org/gnome/desktop/interface/font-name "'Cantarell 11'"
-
-# ---------- Systemctl ----------
-sudo ln -s /usr/lib/systemd/system/zerotier-one.service /etc/systemd/system/multi-user.target.wants/zerotier-one.service
-sudo ln -s /usr/lib/systemd/system/sddm.service /etc/systemd/system/display-manager.service
-sudo ln -s /usr/lib/systemd/system/docker.service /etc/systemd/system/multi-user.target.wants/docker.service
 
 # ---------- Instalação de pacotes do AUR ----------
 mkdir -p /home/rafael/aur-builds
@@ -141,6 +144,6 @@ done
 
 rm -rf /home/rafael/aur-builds
 
-yay -S --noconfirm google-chrome brave-bin parsec-bin sunshine
+yay -S --noconfirm google-chrome brave-bin parsec-bin sunshine arc-gtk-theme
 
 echo "Instalação concluída!"
