@@ -12,20 +12,20 @@ fi
 sudo pacman -S --noconfirm git
 
 # Clonar o repositório
-git clone https://github.com/rafael36/posconfig.git
+#git clone https://github.com/rafael36/posconfig.git
 
 # Acessar a pasta clonada
-cd posconfig/
+#cd posconfig/
 
 # ---------- Instalação de pacotes ----------
 pacotes=(
   "hyprland" "kvantum" "kvantum-qt5" "qt5ct" "qt6ct" "arc-gtk-theme" "firefox" "chromium" "git" "ttf-dejavu" "ttf-liberation"
-  "ttf-font-awesome" "go" "jq" "qbittorrent" "noto-fonts-extra" "hyprpaper"
-  "alacritty" "code" "fuse2" "ttf-jetbrains-mono-nerd" "waybar" "polkit-gnome" "dconf" "pavucontrol" "nano"
+  "ttf-font-awesome" "cantarell-fonts" "go" "jq" "qbittorrent" "noto-fonts-extra" "hyprpaper"
+  "alacritty" "nvim" "noto-fonts" "noto-fonts-cjk" "noto-fonts-emoji" "fuse2" "ttf-jetbrains-mono-nerd" "waybar" "polkit-gnome" "dconf" "pavucontrol" "nano"
   "pulsemixer" "p7zip" "rofi" "sddm" "nwg-look" "noto-fonts" "qt6-wayland" "slurp" "amdvlk"
-  "lib32-amdvlk" "grim" "zerotier-one" "gsimplecal" "wine-staging" "winetricks"
+  "lib32-amdvlk" "grim" "zerotier-one" "gsimplecal" "wine-staging" "winetricks" "tigervnc"
   "wine-mono" "wine-gecko" "lib32-alsa-plugins" "docker" "python3" "python-pip"
-  "nemo" "flatpak" "btop" "psensor" "xdg-desktop-portal-hyprland" "vlc"
+  "nemo" "flatpak" "btop" "psensor" "xdg-desktop-portal-hyprland" "vlc" "wl-clipboard" "cliphist"
   "lib32-libpulse" "mesa" "vulkan-radeon" "xf86-video-amdgpu" "xf86-video-ati"
   "mpv" "steam"
 )
@@ -38,13 +38,11 @@ done
 echo "Todos os pacotes foram instalados!"
 
 # ---------- Extração e movimentação dos arquivos de configuração ----------
-tar -xzf configeatalhos.tar.gz
-cd configpasta
+tar -xvf configpasta.tar.gz
 
 mkdir -p \
   /home/rafael/.config/gtk-3.0 \
   /home/rafael/.themes \
-  /home/rafael/.config/ulauncher \
   /home/rafael/.local/share/nwg-look \
   /home/rafael/.config/xsettingsd \
   /home/rafael/.config/waybar \
@@ -59,10 +57,9 @@ mv nwg-look/gsettings /home/rafael/.local/share/nwg-look
 mv gtk-3.0/settings.ini /home/rafael/.config/gtk-3.0
 mv .gtkrc-2.0 /home/rafael/
 mv alacritty.yml /home/rafael/.config/alacritty
-mv settings.json /home/rafael/.config/ulauncher
 mv xsettingsd/xsettingsd.conf /home/rafael/.config/xsettingsd
 mv script.sh /home/rafael/.config/hypr/
-mv shotcut.desktop retroarch.desktop losslesscut.desktop kdenlive.desktop heroic.desktop /home/rafael/.local/share/applications
+mv shotcut.desktop obsidian.desktop retroarch.desktop losslesscut.desktop kdenlive.desktop heroic.desktop /home/rafael/.local/share/applications
 mv config /home/rafael/.config/waybar/
 mv alacritty.toml /home/rafael/.config/alacritty
 mv hyprpaper.conf hyprland.conf /home/rafael/.config/hypr
@@ -100,6 +97,16 @@ flatpak install -y --user flathub com.obsproject.Studio
 sudo mkdir -p /usr/share/nemo/actions
 sudo mv open_in_code.nemo_action open_in_terminal.nemo_action /usr/share/nemo/actions
 
+# ---------- Google Chrome ----------
+sudo rm /usr/share/applications/com.google.Chrome.desktop
+sudo rm /usr/share/applications/google-chrome.desktop
+sudo rm /usr/share/applications/chromium.desktop
+sudo mv chromium.desktop /usr/share/applications
+sudo mv google-chrome.desktop /usr/share/applications
+
+# ---------- LazyVim ----------
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+
 # ---------- Docker ----------
 sudo mkdir -p /etc/docker
 sudo mv daemon.json /etc/docker
@@ -107,6 +114,12 @@ sudo usermod -aG docker rafael
 
 # ---------- Script ----------
 mv hyprland_config.sh /home/rafael
+
+# Aplicando as configurações
+dconf write /org/gnome/desktop/interface/gtk-theme "'MyBreeze-Dark-GTK'"
+dconf write /org/gnome/desktop/interface/icon-theme "'Adwaita'"
+dconf write /org/gnome/desktop/interface/cursor-theme "'Adwaita'"
+dconf write /org/gnome/desktop/interface/font-name "'Cantarell 11'"
 
 # ---------- Systemctl ----------
 sudo ln -s /usr/lib/systemd/system/zerotier-one.service /etc/systemd/system/multi-user.target.wants/zerotier-one.service
@@ -118,10 +131,7 @@ mkdir -p /home/rafael/aur-builds
 cd /home/rafael/aur-builds
 
 repos_aur=(
-  "google-chrome"
-  "brave-bin"
-  "parsec-bin"
-  "sunshine"
+  "yay"
 )
 
 for repo in "${repos_aur[@]}"; do
@@ -130,5 +140,7 @@ for repo in "${repos_aur[@]}"; do
 done
 
 rm -rf /home/rafael/aur-builds
+
+yay -S --noconfirm google-chrome brave-bin parsec-bin sunshine
 
 echo "Instalação concluída!"
