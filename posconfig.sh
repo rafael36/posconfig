@@ -60,7 +60,7 @@ mv Kvantum sunshine /home/rafael/.config/
 mv alacritty.yml /home/rafael/.config/alacritty
 mv xsettingsd/xsettingsd.conf /home/rafael/.config/xsettingsd
 mv script.sh /home/rafael/.config/hypr/
-mv aprendendoingles.desktop google-chromepoder.desktop aprendendogo.desktop shotcut.desktop obsidian.desktop retroarch.desktop losslesscut.desktop kdenlive.desktop heroic.desktop /home/rafael/.local/share/applications
+mv lazyvim.desktop aprendendoingles.desktop google-chromepoder.desktop aprendendogo.desktop shotcut.desktop obsidian.desktop retroarch.desktop losslesscut.desktop kdenlive.desktop heroic.desktop /home/rafael/.local/share/applications
 mv config /home/rafael/.config/waybar/
 mv alacritty.toml /home/rafael/.config/alacritty
 mv hyprpaper.conf hyprland.conf /home/rafael/.config/hypr
@@ -77,8 +77,8 @@ sudo chmod 777 /mnt/hd2
 sudo mount /dev/sdb1 /mnt/hd2
 
 # Garantir entrada no fstab
-if ! grep -q "UUID=66611ca8-7791-4a23-93d3-dcb7daf5c577" /etc/fstab; then
-  echo "UUID=66611ca8-7791-4a23-93d3-dcb7daf5c577  /mnt/hd2  ext4  defaults,noatime  0  2" | sudo tee -a /etc/fstab
+if ! grep -q "UUID=f8e32812-2c81-45fb-81a2-20287ac6fd08" /etc/fstab; then
+  echo "UUID=f8e32812-2c81-45fb-81a2-20287ac6fd08  /mnt/hd2  ext4  defaults,noatime  0  2" | sudo tee -a /etc/fstab
 fi
 
 # ---------- Configuração do Android AVD ----------
@@ -94,17 +94,14 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 flatpak install -y --user flathub com.obsproject.Studio
 #flatpak install --noninteractive flathub com.obsproject.Studio
 
+# ---------- LazyVim ----------
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+rm -rf ~/.config/nvim/.git
+
 sudo bash <<'EOF'
 # ---------- Nemo Actions ----------
 mkdir -p /usr/share/nemo/actions
 mv open_in_code.nemo_action open_in_terminal.nemo_action /usr/share/nemo/actions
-
-# ---------- Google Chrome ----------
-rm -f /usr/share/applications/com.google.Chrome.desktop
-rm -f /usr/share/applications/google-chrome.desktop
-rm -f /usr/share/applications/chromium.desktop
-mv chromium.desktop /usr/share/applications
-mv google-chrome.desktop /usr/share/applications
 
 # ---------- Docker ----------
 mkdir -p /etc/docker
@@ -148,5 +145,14 @@ done
 rm -rf /home/rafael/aur-builds
 
 yay -S --noconfirm google-chrome brave-bin parsec-bin sunshine arc-gtk-theme
+
+sudo bash <<'EOF'
+# ---------- Google Chrome ----------
+rm -f /usr/share/applications/com.google.Chrome.desktop
+rm -f /usr/share/applications/google-chrome.desktop
+rm -f /usr/share/applications/chromium.desktop
+mv chromium.desktop /usr/share/applications
+mv google-chrome.desktop /usr/share/applications
+EOF
 
 echo "Instalação concluída!"
