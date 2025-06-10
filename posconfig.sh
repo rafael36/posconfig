@@ -20,7 +20,7 @@ sudo pacman -S --noconfirm git
 # ---------- Instalação de pacotes ----------
 pacotes=(
   "hyprland" "kvantum" "kvantum-qt5" "qt5ct" "qt6ct" "arc-gtk-theme" "firefox" "chromium" "git" "ttf-dejavu" "ttf-liberation"
-  "ttf-font-awesome" "cantarell-fonts" "go" "jq" "qbittorrent" "noto-fonts-extra" "hyprpaper"
+  "ttf-font-awesome" "cantarell-fonts" "go" "jq" "ark" "qbittorrent" "noto-fonts-extra" "hyprpaper"
   "alacritty" "nvim" "noto-fonts" "noto-fonts-cjk" "noto-fonts-emoji" "fuse2" "ttf-jetbrains-mono-nerd" "waybar" "polkit-gnome" "dconf" "pavucontrol" "nano"
   "pulsemixer" "p7zip" "rofi" "sddm" "nwg-look" "noto-fonts" "qt6-wayland" "slurp" "amdvlk"
   "lib32-amdvlk" "grim" "zerotier-one" "gsimplecal" "wine-staging" "winetricks" "tigervnc"
@@ -56,11 +56,11 @@ mv wallhaven-*.png /home/rafael/
 mv nwg-look/gsettings /home/rafael/.local/share/nwg-look
 mv gtk-3.0/settings.ini /home/rafael/.config/gtk-3.0
 mv .gtkrc-2.0 /home/rafael/
-mv Kvantum /home/rafael/.config/
+mv Kvantum sunshine /home/rafael/.config/
 mv alacritty.yml /home/rafael/.config/alacritty
 mv xsettingsd/xsettingsd.conf /home/rafael/.config/xsettingsd
 mv script.sh /home/rafael/.config/hypr/
-mv shotcut.desktop obsidian.desktop retroarch.desktop losslesscut.desktop kdenlive.desktop heroic.desktop /home/rafael/.local/share/applications
+mv aprendendoingles.desktop google-chromepoder.desktop aprendendogo.desktop shotcut.desktop obsidian.desktop retroarch.desktop losslesscut.desktop kdenlive.desktop heroic.desktop /home/rafael/.local/share/applications
 mv config /home/rafael/.config/waybar/
 mv alacritty.toml /home/rafael/.config/alacritty
 mv hyprpaper.conf hyprland.conf /home/rafael/.config/hypr
@@ -110,6 +110,9 @@ mv google-chrome.desktop /usr/share/applications
 mkdir -p /etc/docker
 mv daemon.json /etc/docker
 usermod -aG docker rafael
+
+# ---------- Zerotier ----------
+mv zerotier-one /var/lib
 
 # ---------- Systemctl ----------
 ln -sf /usr/lib/systemd/system/zerotier-one.service /etc/systemd/system/multi-user.target.wants/zerotier-one.service
