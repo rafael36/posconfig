@@ -27,7 +27,7 @@ pacotes=(
   "wine-mono" "wine-gecko" "lib32-alsa-plugins" "docker" "python3" "python-pip" "papirus-icon-theme"
   "nemo" "flatpak" "btop" "psensor" "xdg-desktop-portal-hyprland" "vlc" "wl-clipboard" "cliphist"
   "lib32-libpulse" "mesa" "vulkan-radeon" "xf86-video-amdgpu" "xf86-video-ati"
-  "mpv" "steam"
+  "mpv" "steam" "ripgrep"
 )
 
 for pacote in "${pacotes[@]}"; do
